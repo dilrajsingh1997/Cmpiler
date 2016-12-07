@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Compiler</string>
+    <string name="noPrompt">Enter a valid language</string>
+    <array name="spinner_array">
+        <item>C</item>
+        <item>C++</item>
+        <item>Java</item>
+        <item>Python</item>
+        <item>Perl</item>
+        <item>Php</item>
+        <item>Ruby</item>
+        <item>C#</item>
+        <item>MySql</item>
+        <item>Oracle</item>
+        <item>Haskell</item>
+        <item>Clojure</item>
+        <item>Bash</item>
+        <item>Scala</item>
+        <item>Erlang</item>
+        <item>Lua</item>
+        <item>JavaScript</item>
+        <item>Go</item>
+        <item>D</item>
+        <item>Ocaml</item>
+        <item>R</item>
+        <item>Pascal</item>
+        <item>Common Lisp (SBCL)</item>
+        <item>Python 3</item>
+        <item>Groovy</item>
+        <item>Objective C</item>
+        <item>F#</item>
+        <item>Cobol</item>
+        <item>VisualBasic</item>
+        <item>LolCode</item>
+        <item>SmallTalk</item>
+        <item>TCL</item>
+        <item>WhiteSpace</item>
+        <item>TSQL</item>
+        <item>Java 8</item>
+        <item>DB2</item>
+        <item>Octave</item>
+        <item>XQuery</item>
+        <item>Racket</item>
+        <item>Rust</item>
+        <item>Swift</item>
+        <item>Fortron</item>
+    </array>
+</resources>
