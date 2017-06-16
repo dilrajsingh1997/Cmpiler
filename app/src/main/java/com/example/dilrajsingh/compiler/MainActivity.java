@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     Boolean flag = false;
     ProgressDialog pd;
     JSONObject cresult;
-    View help;
+    View help, help2;
     public static final String PREFS_NAME = "MyPrefsFile1";
     public CheckBox dontShowAgain;
     private static final Pattern REGEX_PATTERN =
@@ -122,7 +122,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        show();
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        String res = settings.getString("skipMessage", "");
+        if(!res.equals("checked"))
+            show();
         editext = (EditText) findViewById(R.id.editText);
         spinner = (Spinner) findViewById(R.id.spinner);
         textView = (TextView) findViewById(R.id.textView);
@@ -249,17 +252,14 @@ public class MainActivity extends AppCompatActivity {
 
                 SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
                 SharedPreferences.Editor editor = settings.edit();
-
                 editor.putString("skipMessage", checkBoxResult);
                 editor.commit();
-
-                return;
             }
         });
-
-        if (!skipMessage.equals("checked")) {
+        adb.show();
+        /*if (!skipMessage.equals("checked")) {
             adb.show();
-        }
+        }*/
 
     }
 
@@ -846,33 +846,81 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.buttonHelp:
-                AlertDialog.Builder al = new AlertDialog.Builder(MainActivity.this);
-                al.setTitle("Help");
-                al.setMessage("1. Select a language first, because any language selected will give you a basic framework for writing code\n" +
-                        "\n" +
-                        "2. Enter your code\n" +
-                        "\n" +
-                        "3. Click the compile button to compile and execute your code\n" +
-                        "\n" +
-                        "4. Enter the testcases, leave it blank for no testcases.\n" +
-                        "\n" +
-                        "5. Hit Compile\n" +
-                        "\n" +
-                        "6. If your code compiled and executed successfully, you can run your code\n" +
-                        "\n" +
-                        "7. Else, you will be acknowledged with the error\n" +
-                        "\n" +
-                        "8. If compiled successfully, run the code and enjoy the app");
-
-                al.setPositiveButton("Got It", new DialogInterface.OnClickListener() {
+                Display display = ((WindowManager) getSystemService(WINDOW_SERVICE)).getDefaultDisplay();
+                int screenWidth = display.getWidth();
+                int screenHeight = display.getHeight();
+                AlertDialog.Builder adb = new AlertDialog.Builder(this);
+                LayoutInflater lp = LayoutInflater.from(MainActivity.this);
+                help2 = lp.inflate(R.layout.help2, null);
+                imageView = (ImageView) help2.findViewById(R.id.imageView8);
+                imageView2 = (ImageView) help2.findViewById(R.id.imageView9);
+                imageView3 = (ImageView) help2.findViewById(R.id.imageView10);
+                imageView4 = (ImageView) help2.findViewById(R.id.imageView11);
+                imageView5 = (ImageView) help2.findViewById(R.id.imageView12);
+                imageView6 = (ImageView) help2.findViewById(R.id.imageView13);
+                imageView7 = (ImageView) help2.findViewById(R.id.imageView14);
+                Bitmap bmp1 = BitmapFactory.decodeResource(getResources(), R.drawable.a);
+                Bitmap newbmp1 = Bitmap.createScaledBitmap(bmp1, screenWidth, screenHeight + 23*16/9, true);
+                imageView.setImageBitmap(newbmp1);
+                //bmp1.recycle();
+                //newbmp1.recycle();
+                Bitmap bmp2 = BitmapFactory.decodeResource(getResources(), R.drawable.b);
+                bmp2 = Bitmap.createScaledBitmap(bmp2, screenWidth, screenHeight + 23*16/9, true);
+                imageView2.setImageBitmap(bmp2);
+                //bmp2.recycle();
+                //newbmp2.recycle();
+                Bitmap bmp3 = BitmapFactory.decodeResource(getResources(), R.drawable.c);
+                bmp3 = Bitmap.createScaledBitmap(bmp3, screenWidth, screenHeight + 23*16/9, true);
+                imageView3.setImageBitmap(bmp3);
+                //bmp3.recycle();
+                //newbmp3.recycle();
+                Bitmap bmp4 = BitmapFactory.decodeResource(getResources(), R.drawable.d);
+                bmp4 = Bitmap.createScaledBitmap(bmp4, screenWidth, screenHeight + 23*16/9, true);
+                imageView4.setImageBitmap(bmp4);
+                //bmp4.recycle();
+                //newbmp4.recycle();
+                Bitmap bmp5 = BitmapFactory.decodeResource(getResources(), R.drawable.e);
+                bmp5 = Bitmap.createScaledBitmap(bmp5, screenWidth, screenHeight + 23*16/9, true);
+                imageView5.setImageBitmap(bmp5);
+                //bmp5.recycle();
+                //newbmp5.recycle();
+                Bitmap bmp6 = BitmapFactory.decodeResource(getResources(), R.drawable.f);
+                bmp6 = Bitmap.createScaledBitmap(bmp6, screenWidth, screenHeight + 23*16/9, true);
+                imageView6.setImageBitmap(bmp6);
+                //bmp6.recycle();
+                //newbmp6.recycle();
+                Bitmap bmp7 = BitmapFactory.decodeResource(getResources(), R.drawable.g);
+                bmp7 = Bitmap.createScaledBitmap(bmp7, screenWidth, screenHeight + 23*16/9, true);
+                imageView7.setImageBitmap(bmp7);
+                //bmp7.recycle();
+                //newbmp7.recycle();
+                text = (TextView) help2.findViewById(R.id.textView9);
+                text2 = (TextView) help2.findViewById(R.id.textView10);
+                text3 = (TextView) help2.findViewById(R.id.textView11);
+                text4 = (TextView) help2.findViewById(R.id.textView12);
+                text5 = (TextView) help2.findViewById(R.id.textView13);
+                text6 = (TextView) help2.findViewById(R.id.textView14);
+                text7 = (TextView) help2.findViewById(R.id.textView15);
+                text.setText("1. Select a language first, because any language selected will give you a basic framework for writing code");
+                text2.setText("2. Enter your code");
+                text3.setText("3. Click the compile button to compile and execute your code. Enter the testcases, leave it blank for no testcases");
+                text4.setText("4. Hit Compile");
+                text5.setText("5. If your code compiled and executed successfully, you can run your code");
+                text6.setText("6. Else, you will be acknowledged with the error");
+                text7.setText("8. If compiled successfully, run the code and enjoy the app");
+                adb.setView(help2);
+                adb.setTitle("Help");
+                adb.setPositiveButton("Got it", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
                     }
                 });
-                al.show();
+                adb.show();
                 break;
         }
+        help2.destroyDrawingCache();
+        help2.invalidate();
         return true;
     }
 }
