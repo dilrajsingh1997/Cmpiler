@@ -14,6 +14,7 @@
         android:layout_height="match_parent"
         android:inputType="textMultiLine"
         android:ems="10"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:id="@+id/editText"
         android:hint="Enter your code here"
         android:layout_above="@+id/button"
@@ -25,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Compile"
+        android:background="@drawable/btn_bg"
         android:id="@+id/button"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
@@ -38,6 +40,7 @@
         android:layout_alignTop="@+id/button"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:background="@drawable/btn_bg"
         android:onClick="onExecute" />
 
     <Spinner
@@ -62,10 +65,36 @@
         android:layout_marginTop="12dp"
         android:autoText="false"
         android:maxLines="9"
+        android:enabled="true"
+        android:textIsSelectable="true"
+        android:focusable="true"
+        android:longClickable="true"
         android:minWidth="500dp"
         android:scrollbars="vertical"
         android:text="Your ouput here"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@android:color/black" />
+
+    <!--EditText
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/spinner"
+        android:layout_marginTop="12dp"
+        android:autoText="false"
+        android:maxLines="9"
+        android:enabled="true"
+        android:textIsSelectable="true"
+        android:focusable="true"
+        android:longClickable="true"
+        android:minWidth="500dp"
+        android:scrollbars="vertical"
+        android:gravity="start"
+        android:text="Your ouput here"
+        android:editable="false"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/black" /-->
 
 </RelativeLayout>

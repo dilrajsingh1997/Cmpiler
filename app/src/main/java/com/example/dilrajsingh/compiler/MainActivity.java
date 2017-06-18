@@ -136,6 +136,15 @@ public class MainActivity extends AppCompatActivity {
         pd.setTitle("Compiling source");
         pd.setCancelable(false);
         pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        //textView.setTextIsSelectable(true);
+        /*textView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                textView.setCursorVisible(true);
+                return false;
+            }
+        });*/
+        //textView.setEnabled(false);
         if(!isNetworkAvailable()){
             Toast.makeText(MainActivity.this, "Please check your network connection", Toast.LENGTH_SHORT).show();
         }
